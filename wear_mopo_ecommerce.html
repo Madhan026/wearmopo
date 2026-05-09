@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEAR MOPO - Premium Streetwear</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--black:#0a0a0a;--white:#fafafa;--gray:#888;--light-gray:#e8e8e8;
+--accent:#c8a96e;--accent2:#d4b896;
+--font-display:'Bebas Neue',cursive;
+--font-serif:'Playfair Display',serif;
+--font-body:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{cursor:pointer;border:none;font-family:var(--font-body)}
+
+/* ─── NAVBAR ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);transition:all .3s}
+.nav-inner{max-width:1400px;margin:auto;padding:0 2rem;height:64px;display:flex;align-items:center;gap:2.5rem}
+.logo{font-family:var(--font-display);font-size:1.6rem;letter-spacing:4px;color:var(--white);flex-shrink:0;cursor:pointer}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:2rem;margin:0 auto}
+.nav-links a{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:#aaa;transition:color .2s;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-icons{display:flex;align-items:center;gap:1rem;margin-left:auto}
+.nav-icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:transparent;display:flex;align-items:center;justify-content:center;color:var(--white);cursor:pointer;transition:all .2s;font-size:.9rem}
+.nav-icon-btn:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3)}
+.nav-icon-btn.whatsapp{background:#25D366;border-color:#25D366;color:#fff}
+.nav-icon-btn.whatsapp:hover{background:#20c45a}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s;border-radius:2px}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);padding:2rem;z-index:999;border-bottom:1px solid rgba(255,255,255,0.08);flex-direction:column;gap:1.5rem}
+.mobile-menu a{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:#aaa;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mobile-menu.open{display:flex}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--black)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-bg-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(10,10,10,.9) 100%)}
+.hero-accent-line{position:absolute;top:50%;right:0;width:40%;height:1px;background:linear-gradient(to left,transparent,rgba(200,169,110,.4))}
+.hero-content{position:relative;z-index:1;text-align:center;padding:0 2rem;max-width:900px}
+.hero-eyebrow{font-size:.7rem;letter-spacing:6px;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;opacity:.9}
+.hero-title{font-family:var(--font-display);font-size:clamp(4.5rem,12vw,9rem);letter-spacing:6px;line-height:.92;color:var(--white);margin-bottom:.5rem}
+.hero-subtitle{font-family:var(--font-serif);font-size:clamp(1.1rem,3vw,1.8rem);color:rgba(255,255,255,.55);font-style:italic;margin-bottom:3rem;letter-spacing:2px}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{padding:.85rem 2.5rem;background:var(--white);color:var(--black);font-size:.7rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;border-radius:0;transition:all .2s;border:1px solid var(--white)}
+.btn-primary:hover{background:transparent;color:var(--white)}
+.btn-secondary{padding:.85rem 2.5rem;background:transparent;color:var(--white);font-size:.7rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;border:1px solid rgba(255,255,255,.35);transition:all .2s}
+.btn-secondary:hover{border-color:var(--white);background:rgba(255,255,255,.06)}
+.btn-wa{padding:.85rem 2.5rem;background:#25D366;color:#fff;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;border:none;border-radius:0;transition:all .2s;display:flex;align-items:center;gap:.5rem}
+.btn-wa:hover{background:#20c45a}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:#555;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;animation:scrollBounce 2s ease-in-out infinite}
+.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent)}
+@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ─── SECTION COMMONS ─── */
+section{padding:6rem 2rem}
+.section-inner{max-width:1400px;margin:auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-eyebrow{font-size:.65rem;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.section-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);letter-spacing:4px;color:var(--white);line-height:1}
+.section-subtitle{margin-top:.75rem;color:#777;font-size:.9rem;letter-spacing:1px}
+
+/* ─── MARQUEE STRIP ─── */
+.marquee-strip{background:var(--accent);padding:.65rem 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;animation:marquee 30s linear infinite;gap:0}
+.marquee-item{font-family:var(--font-display);font-size:1rem;letter-spacing:4px;color:var(--black);padding:0 2rem;display:flex;align-items:center;gap:1rem}
+.marquee-dot{width:5px;height:5px;background:var(--black);border-radius:50%;opacity:.5}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── PRODUCT CARDS ─── */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5px}
+.product-card{background:#111;overflow:hidden;position:relative;group:true}
+.product-img-wrap{aspect-ratio:3/4;overflow:hidden;position:relative;background:#111}
+.product-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);letter-spacing:4px;font-size:1.1rem;color:#333;background:linear-gradient(135deg,#111 0%,#1a1a1a 50%,#111 100%);position:relative;overflow:hidden}
+.product-img-placeholder::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.015) 10px,rgba(255,255,255,.015) 20px)}
+.product-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 50%)}
+.product-card-overlay{position:absolute;bottom:0;left:0;right:0;padding:1.25rem;z-index:2;transform:translateY(60px);transition:transform .35s ease}
+.product-card:hover .product-card-overlay{transform:translateY(0)}
+.product-card:hover .product-img-placeholder{transform:scale(1.03);transition:transform .5s ease}
+.product-card:hover .product-img-placeholder{filter:brightness(1.05)}
+.product-info{padding:1.1rem 1.25rem;background:#111;border-top:1px solid rgba(255,255,255,.06)}
+.product-name{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--white);margin-bottom:.3rem}
+.product-price{font-family:var(--font-serif);font-size:1rem;color:var(--accent)}
+.product-badge{position:absolute;top:.75rem;left:.75rem;z-index:3;padding:.3rem .6rem;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.badge-new{background:var(--white);color:var(--black)}
+.badge-hot{background:var(--accent);color:var(--black)}
+.badge-cod{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.product-card-btns{display:flex;gap:.5rem}
+.card-btn{padding:.55rem 1rem;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;flex:1;text-align:center;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:var(--white);backdrop-filter:blur(10px);transition:all .2s}
+.card-btn:hover{background:rgba(255,255,255,.2)}
+.card-btn.wa{background:#25D366;border-color:#25D366;color:#fff}
+.card-btn.wa:hover{background:#20c45a}
+.quick-view-tag{position:absolute;top:.75rem;right:.75rem;z-index:3;padding:.3rem .6rem;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;background:rgba(10,10,10,.8);color:var(--white);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);opacity:0;transition:opacity .3s;cursor:pointer}
+.product-card:hover .quick-view-tag{opacity:1}
+
+/* ─── FILTERS ─── */
+.filter-bar{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:3rem;align-items:center}
+.filter-btn{padding:.45rem 1.1rem;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;border:1px solid rgba(255,255,255,.15);background:transparent;color:#888;cursor:pointer;transition:all .2s;border-radius:0}
+.filter-btn:hover,.filter-btn.active{border-color:var(--white);color:var(--white);background:rgba(255,255,255,.06)}
+.filter-label{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#555;margin-right:.25rem}
+.size-select,.price-select{padding:.4rem .8rem;font-size:.65rem;letter-spacing:1px;text-transform:uppercase;background:#111;border:1px solid rgba(255,255,255,.15);color:#888;cursor:pointer;outline:none;font-family:var(--font-body)}
+
+/* ─── FEATURES STRIP ─── */
+.features-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.08);border-right:none}
+.feature-item{padding:2rem 1.5rem;border-right:1px solid rgba(255,255,255,.08);text-align:center}
+.feature-icon{font-size:1.5rem;margin-bottom:.75rem}
+.feature-title{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:.3rem;color:var(--white)}
+.feature-desc{font-size:.75rem;color:#666;line-height:1.5}
+
+/* ─── TESTIMONIALS ─── */
+.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:rgba(255,255,255,.06)}
+.testimonial-card{background:var(--black);padding:2rem;position:relative}
+.testimonial-card::before{content:'"';font-family:var(--font-serif);font-size:4rem;color:rgba(200,169,110,.2);position:absolute;top:.5rem;left:1.5rem;line-height:1}
+.testimonial-stars{color:var(--accent);font-size:.8rem;margin-bottom:.75rem;letter-spacing:2px}
+.testimonial-text{font-size:.88rem;color:#bbb;line-height:1.7;margin-bottom:1rem;font-style:italic}
+.testimonial-author{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#666}
+.testimonial-author span{color:var(--accent)}
+
+/* ─── INSTAGRAM SECTION ─── */
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:2px}
+.insta-item{aspect-ratio:1;background:#1a1a1a;overflow:hidden;position:relative;cursor:pointer}
+.insta-item:hover .insta-overlay{opacity:1}
+.insta-overlay{position:absolute;inset:0;background:rgba(10,10,10,.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;font-size:1.2rem;color:var(--white)}
+.insta-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:.65rem;letter-spacing:2px;color:#333;font-family:var(--font-display)}
+
+/* ─── WHY US ─── */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.why-card{padding:3rem 2rem;background:#0d0d0d;border:1px solid rgba(255,255,255,.04);position:relative;overflow:hidden}
+.why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .4s ease}
+.why-card:hover::after{transform:scaleX(1)}
+.why-number{font-family:var(--font-display);font-size:3.5rem;color:rgba(255,255,255,.05);position:absolute;top:.5rem;right:1rem;letter-spacing:2px}
+.why-icon{font-size:1.8rem;margin-bottom:1.25rem}
+.why-title{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:.75rem;color:var(--white)}
+.why-desc{font-size:.82rem;color:#666;line-height:1.7}
+
+/* ─── CUSTOM TEE SECTION ─── */
+.custom-tee-section{background:#0d0d0d;position:relative;overflow:hidden}
+.custom-tee-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.custom-tee-visual{aspect-ratio:1;background:#111;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.custom-tee-placeholder{font-family:var(--font-display);font-size:5rem;letter-spacing:8px;color:rgba(255,255,255,.08);text-align:center}
+.custom-steps{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem}
+.custom-step{display:flex;gap:1.25rem;align-items:flex-start}
+.step-num{font-family:var(--font-display);font-size:1.5rem;color:var(--accent);flex-shrink:0;line-height:1;width:2rem}
+.step-info{}
+.step-title{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:.25rem}
+.step-desc{font-size:.8rem;color:#666;line-height:1.5}
+
+/* ─── NEWSLETTER ─── */
+.newsletter-section{background:var(--white);padding:5rem 2rem}
+.newsletter-inner{max-width:600px;margin:auto;text-align:center}
+.newsletter-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);letter-spacing:4px;color:var(--black);line-height:1;margin-bottom:.5rem}
+.newsletter-subtitle{color:#777;font-size:.85rem;margin-bottom:2rem}
+.newsletter-form{display:flex;gap:0}
+.newsletter-input{flex:1;padding:.85rem 1.25rem;border:1px solid #ddd;border-right:none;outline:none;font-family:var(--font-body);font-size:.85rem;background:transparent;color:var(--black)}
+.newsletter-input::placeholder{color:#aaa}
+.newsletter-btn{padding:.85rem 1.75rem;background:var(--black);color:var(--white);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;transition:all .2s}
+.newsletter-btn:hover{background:#222}
+
+/* ─── FOOTER ─── */
+footer{background:#050505;border-top:1px solid rgba(255,255,255,.06)}
+.footer-main{max-width:1400px;margin:auto;padding:4rem 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+.footer-brand{}
+.footer-logo{font-family:var(--font-display);font-size:1.8rem;letter-spacing:4px;margin-bottom:.75rem}
+.footer-logo span{color:var(--accent)}
+.footer-tagline{font-size:.8rem;color:#555;line-height:1.6;max-width:250px;margin-bottom:1.5rem}
+.footer-socials{display:flex;gap:.75rem}
+.footer-social{width:36px;height:36px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#777;font-size:.9rem;transition:all .2s;cursor:pointer}
+.footer-social:hover{border-color:var(--white);color:var(--white)}
+.footer-col-title{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:#555;margin-bottom:1.25rem;font-weight:600}
+.footer-links{display:flex;flex-direction:column;gap:.65rem}
+.footer-links a{font-size:.8rem;color:#555;transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.04);padding:1.5rem 2rem;max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.footer-copy{font-size:.7rem;color:#444;letter-spacing:1px}
+.footer-badges{display:flex;gap:.5rem}
+.footer-badge{padding:.25rem .6rem;border:1px solid rgba(255,255,255,.08);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:#555}
+
+/* ─── FLOATING WA ─── */
+.floating-wa{position:fixed;bottom:2rem;right:2rem;z-index:998;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);cursor:pointer;transition:all .3s;font-size:1.3rem}
+.floating-wa:hover{transform:scale(1.08);box-shadow:0 6px 30px rgba(37,211,102,.5)}
+.floating-wa-pulse{position:absolute;inset:0;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;opacity:.6}
+@keyframes waPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+
+/* ─── PRODUCT DETAIL MODAL ─── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:2000;display:none;align-items:center;justify-content:center;padding:2rem;backdrop-filter:blur(6px)}
+.modal-overlay.open{display:flex}
+.modal-box{background:#0d0d0d;max-width:860px;width:100%;max-height:90vh;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,.08)}
+.modal-img{aspect-ratio:3/4;background:#111;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:3rem;color:rgba(255,255,255,.08);letter-spacing:4px}
+.modal-info{padding:2.5rem 2rem}
+.modal-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);cursor:pointer;font-size:1rem;z-index:2}
+.modal-overlay{position:relative}
+.modal-name{font-family:var(--font-display);font-size:2rem;letter-spacing:3px;color:var(--white);line-height:1;margin-bottom:.5rem}
+.modal-price{font-family:var(--font-serif);font-size:1.5rem;color:var(--accent);margin-bottom:1.5rem}
+.modal-section-title{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:.75rem;margin-top:1.25rem}
+.size-options{display:flex;gap:.5rem;flex-wrap:wrap}
+.size-opt{width:44px;height:44px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.72rem;letter-spacing:1px;cursor:pointer;transition:all .2s;color:#888}
+.size-opt:hover,.size-opt.sel{border-color:var(--white);color:var(--white);background:rgba(255,255,255,.06)}
+.color-options{display:flex;gap:.5rem}
+.color-dot{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:border-color .2s}
+.color-dot.sel{border-color:var(--white)}
+.modal-desc{font-size:.8rem;color:#666;line-height:1.7;margin-top:1rem}
+.modal-btns{display:flex;flex-direction:column;gap:.75rem;margin-top:1.75rem}
+.modal-btn{padding:.85rem 1.5rem;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-align:center;transition:all .2s;cursor:pointer;border:1px solid}
+.modal-btn.wa-btn{background:#25D366;border-color:#25D366;color:#fff}
+.modal-btn.wa-btn:hover{background:#20c45a}
+.modal-btn.outline{background:transparent;border-color:rgba(255,255,255,.2);color:#aaa}
+.modal-btn.outline:hover{border-color:var(--white);color:var(--white)}
+.modal-details{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1rem}
+.modal-detail-item{padding:.75rem;background:#111;border:1px solid rgba(255,255,255,.06)}
+.modal-detail-label{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:.25rem}
+.modal-detail-val{font-size:.78rem;color:#aaa}
+
+/* ─── ADMIN DASHBOARD ─── */
+.admin-page{display:none;min-height:100vh;background:#0a0a0a}
+.admin-page.active{display:flex}
+.admin-sidebar{width:240px;background:#050505;border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;padding:0;flex-shrink:0;position:fixed;top:0;left:0;bottom:0;z-index:100}
+.admin-logo{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.admin-logo-text{font-family:var(--font-display);font-size:1.1rem;letter-spacing:3px;color:var(--white)}
+.admin-logo-sub{font-size:.6rem;letter-spacing:2px;color:#444;text-transform:uppercase;margin-top:.15rem}
+.admin-nav{flex:1;padding:1rem 0;overflow-y:auto}
+.admin-nav-section{font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:#333;padding:.5rem 1.5rem;margin-top:.5rem}
+.admin-nav-item{display:flex;align-items:center;gap:.75rem;padding:.7rem 1.5rem;color:#666;font-size:.75rem;cursor:pointer;transition:all .2s;border-left:2px solid transparent}
+.admin-nav-item:hover{color:#aaa;background:rgba(255,255,255,.03)}
+.admin-nav-item.active{color:var(--white);background:rgba(255,255,255,.05);border-left-color:var(--accent)}
+.admin-nav-icon{font-size:1rem;width:1.2rem;text-align:center}
+.admin-main{flex:1;margin-left:240px;display:flex;flex-direction:column;min-height:100vh}
+.admin-topbar{padding:1rem 2rem;background:#0d0d0d;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.admin-topbar-title{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--white);font-weight:500}
+.admin-topbar-user{display:flex;align-items:center;gap:.75rem;font-size:.75rem;color:#666}
+.admin-avatar{width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:600;color:var(--black)}
+.admin-content{padding:2rem;flex:1}
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.stat-card{background:#111;border:1px solid rgba(255,255,255,.06);padding:1.5rem;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent)}
+.stat-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:.5rem}
+.stat-value{font-family:var(--font-display);font-size:2rem;letter-spacing:2px;color:var(--white)}
+.stat-change{font-size:.7rem;color:#25D366;margin-top:.25rem}
+.admin-grid-2{display:grid;grid-template-columns:2fr 1fr;gap:1rem}
+.admin-card{background:#111;border:1px solid rgba(255,255,255,.06);padding:1.5rem;margin-bottom:1rem}
+.admin-card-title{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between}
+.admin-card-title span{color:var(--white)}
+.admin-table{width:100%;border-collapse:collapse}
+.admin-table th{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#444;padding:.65rem .75rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.05)}
+.admin-table td{padding:.75rem;font-size:.78rem;color:#888;border-bottom:1px solid rgba(255,255,255,.04)}
+.admin-table tr:hover td{background:rgba(255,255,255,.02);color:#aaa}
+.admin-table .status-badge{padding:.2rem .55rem;font-size:.58rem;letter-spacing:1px;text-transform:uppercase}
+.status-pending{background:rgba(239,157,27,.1);color:#ef9d1b;border:1px solid rgba(239,157,27,.2)}
+.status-delivered{background:rgba(37,211,102,.1);color:#25D366;border:1px solid rgba(37,211,102,.2)}
+.status-processing{background:rgba(37,136,211,.1);color:#2588d3;border:1px solid rgba(37,136,211,.2)}
+.add-product-form{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.form-group{display:flex;flex-direction:column;gap:.35rem}
+.form-group.full{grid-column:1/-1}
+.form-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#555}
+.form-input,.form-select,.form-textarea{background:#0d0d0d;border:1px solid rgba(255,255,255,.08);color:var(--white);padding:.6rem .8rem;font-size:.8rem;font-family:var(--font-body);outline:none;transition:border-color .2s;width:100%}
+.form-input:focus,.form-textarea:focus{border-color:rgba(255,255,255,.2)}
+.form-textarea{height:80px;resize:vertical}
+.form-select{cursor:pointer}
+.upload-zone{border:1px dashed rgba(255,255,255,.15);padding:2rem;text-align:center;cursor:pointer;transition:all .2s;background:#0d0d0d}
+.upload-zone:hover{border-color:rgba(255,255,255,.3)}
+.upload-icon{font-size:2rem;margin-bottom:.5rem;opacity:.3}
+.upload-text{font-size:.72rem;color:#555}
+.admin-btn{padding:.55rem 1.25rem;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .2s}
+.admin-btn.primary{background:var(--accent);color:var(--black);border:none}
+.admin-btn.primary:hover{background:#d4b896}
+.admin-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.12);color:#888}
+.admin-btn.ghost:hover{border-color:rgba(255,255,255,.3);color:var(--white)}
+.admin-btn.danger{background:rgba(220,50,50,.15);border:1px solid rgba(220,50,50,.25);color:#e05c5c}
+.admin-btn.danger:hover{background:rgba(220,50,50,.25)}
+
+/* ─── LOGIN PAGE ─── */
+.login-page{display:none;min-height:100vh;align-items:center;justify-content:center;background:var(--black)}
+.login-page.active{display:flex}
+.login-box{width:380px;padding:3rem 2.5rem;border:1px solid rgba(255,255,255,.08);background:#0d0d0d}
+.login-logo{font-family:var(--font-display);font-size:2rem;letter-spacing:5px;text-align:center;margin-bottom:.3rem}
+.login-logo span{color:var(--accent)}
+.login-sub{text-align:center;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:2.5rem}
+.login-form{display:flex;flex-direction:column;gap:1.25rem}
+.login-form .form-input{padding:.75rem 1rem}
+.login-submit{padding:.85rem;background:var(--white);color:var(--black);font-size:.65rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;margin-top:.5rem;transition:all .2s;width:100%}
+.login-submit:hover{background:var(--accent);color:var(--black)}
+.login-err{font-size:.72rem;color:#e05c5c;text-align:center;margin-top:.5rem;display:none}
+.login-err.show{display:block}
+
+/* ─── PAGE TRANSITIONS ─── */
+.page{animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── ABOUT ─── */
+.about-hero{background:#0d0d0d;padding:8rem 2rem 5rem;text-align:center;border-bottom:1px solid rgba(255,255,255,.05)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1100px;margin:auto}
+.about-visual{aspect-ratio:4/5;background:#111;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:3rem;letter-spacing:6px;color:rgba(255,255,255,.06)}
+.about-text{}
+.about-eyebrow{font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.about-heading{font-family:var(--font-display);font-size:clamp(2.5rem,4vw,3.5rem);letter-spacing:3px;line-height:1;margin-bottom:1.25rem}
+.about-body{font-size:.88rem;color:#777;line-height:1.8;margin-bottom:1.25rem}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.about-val{padding:1.25rem;background:#111;border:1px solid rgba(255,255,255,.06)}
+.about-val-title{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
+.about-val-desc{font-size:.78rem;color:#666;line-height:1.5}
+
+/* ─── CONTACT ─── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1000px;margin:auto}
+.contact-info{}
+.contact-info-title{font-family:var(--font-display);font-size:2.5rem;letter-spacing:3px;margin-bottom:1rem}
+.contact-info-desc{font-size:.85rem;color:#666;line-height:1.7;margin-bottom:2rem}
+.contact-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.contact-item-icon{width:36px;height:36px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);font-size:.85rem}
+.contact-item-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:.2rem}
+.contact-item-val{font-size:.85rem;color:#aaa}
+.contact-form{background:#0d0d0d;padding:2.5rem;border:1px solid rgba(255,255,255,.06)}
+.contact-form-title{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:#555;margin-bottom:1.5rem}
+.contact-form-fields{display:flex;flex-direction:column;gap:1rem}
+.contact-submit{padding:.85rem;background:var(--white);color:var(--black);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;margin-top:.5rem;transition:all .2s;width:100%}
+.contact-submit:hover{background:var(--accent);color:var(--black)}
+
+/* ─── COD BANNER ─── */
+.cod-banner{background:#0d0d0d;border:1px solid rgba(255,255,255,.06);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;gap:1rem;flex-wrap:wrap}
+.cod-banner-text{font-size:.78rem;color:#888;display:flex;align-items:center;gap:.75rem}
+.cod-badge-large{padding:.4rem .8rem;background:rgba(200,169,110,.1);border:1px solid rgba(200,169,110,.3);color:var(--accent);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+
+/* ─── SHIPPING ─── */
+.shipping-banner{background:var(--accent);padding:1.25rem 2rem;text-align:center}
+.shipping-banner-text{font-family:var(--font-display);font-size:1.1rem;letter-spacing:4px;color:var(--black)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-title{font-size:clamp(3rem,14vw,5rem)}
+  .features-strip{grid-template-columns:1fr 1fr}
+  .insta-grid{grid-template-columns:repeat(3,1fr)}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .custom-tee-inner{grid-template-columns:1fr}
+  .footer-main{grid-template-columns:1fr 1fr}
+  .admin-sidebar{width:200px}
+  .admin-main{margin-left:200px}
+  .admin-stats{grid-template-columns:1fr 1fr}
+  .admin-grid-2{grid-template-columns:1fr}
+  .modal-box{grid-template-columns:1fr;max-width:480px}
+  .modal-img{aspect-ratio:16/9}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  section{padding:4rem 1.25rem}
+  .features-strip{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .insta-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-main{grid-template-columns:1fr}
+  .admin-sidebar{display:none}
+  .admin-main{margin-left:0}
+  .admin-stats{grid-template-columns:1fr 1fr}
+  .newsletter-form{flex-direction:column}
+  .newsletter-input{border-right:1px solid #ddd}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<div class="floating-wa" onclick="openWhatsApp('Hi WEAR MOPO! I need help with my order.')" title="Chat on WhatsApp">
+  <div class="floating-wa-pulse"></div>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">WEAR <span>MOPO</span></div>
+    <div class="nav-links">
+      <a href="#" class="active" onclick="showPage('home');return false">Home</a>
+      <a href="#" onclick="showPage('shop');return false">Shop</a>
+      <a href="#" onclick="showPage('shop');filterCategory('oversized');return false">Oversized Tees</a>
+      <a href="#" onclick="showPage('custom');return false">Custom Tees</a>
+      <a href="#" onclick="showPage('about');return false">About Us</a>
+      <a href="#" onclick="showPage('contact');return false">Contact</a>
+    </div>
+    <div class="nav-icons">
+      <button class="nav-icon-btn" onclick="window.open('https://instagram.com','_blank')" title="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </button>
+      <button class="nav-icon-btn whatsapp" onclick="openWhatsApp('Hi WEAR MOPO!')" title="WhatsApp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </button>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home');toggleMenu();return false">Home</a>
+  <a href="#" onclick="showPage('shop');toggleMenu();return false">Shop</a>
+  <a href="#" onclick="showPage('shop');filterCategory('oversized');toggleMenu();return false">Oversized Tees</a>
+  <a href="#" onclick="showPage('custom');toggleMenu();return false">Custom Tees</a>
+  <a href="#" onclick="showPage('about');toggleMenu();return false">About Us</a>
+  <a href="#" onclick="showPage('contact');toggleMenu();return false">Contact</a>
+  <a href="#" style="color:var(--accent)" onclick="openWhatsApp('Hi WEAR MOPO!');return false">📲 WhatsApp Order</a>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal-overlay" id="productModal" onclick="closeModal(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-img" id="modalImg">WEAR MOPO</div>
+    <div class="modal-info">
+      <button class="modal-close" onclick="document.getElementById('productModal').classList.remove('open')" style="position:sticky;top:.5rem;float:right;margin-bottom:1rem">✕</button>
+      <p id="modalCategory" style="font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem"></p>
+      <h2 class="modal-name" id="modalName"></h2>
+      <p class="modal-price" id="modalPrice"></p>
+      <p class="modal-section-title">Select Size</p>
+      <div class="size-options" id="modalSizes"></div>
+      <p class="modal-section-title">Select Color</p>
+      <div class="color-options" id="modalColors"></div>
+      <div class="modal-details">
+        <div class="modal-detail-item">
+          <div class="modal-detail-label">Fabric</div>
+          <div class="modal-detail-val" id="modalFabric"></div>
+        </div>
+        <div class="modal-detail-item">
+          <div class="modal-detail-label">Delivery</div>
+          <div class="modal-detail-val">3-5 Working Days</div>
+        </div>
+        <div class="modal-detail-item">
+          <div class="modal-detail-label">Payment</div>
+          <div class="modal-detail-val">COD Available</div>
+        </div>
+        <div class="modal-detail-item">
+          <div class="modal-detail-label">Shipping</div>
+          <div class="modal-detail-val">Pan India</div>
+        </div>
+      </div>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-btns">
+        <button class="modal-btn wa-btn" id="modalWaBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white" style="display:inline;vertical-align:middle;margin-right:.4rem"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          ORDER ON WHATSAPP
+        </button>
+        <button class="modal-btn outline" onclick="document.getElementById('productModal').classList.remove('open')">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ HOME PAGE ══════════ -->
+<div id="page-home" class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-bg-vignette"></div>
+      <div class="hero-accent-line"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Premium Streetwear · Est. 2024</p>
+      <h1 class="hero-title">WEAR<br>MOPO</h1>
+      <p class="hero-subtitle">Trendy &amp; Custom T-Shirts</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('shop')">Shop Now</button>
+        <button class="btn-wa" onclick="openWhatsApp('Hi WEAR MOPO! I want to browse your latest collection.')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          Order on WhatsApp
+        </button>
+        <button class="btn-secondary" onclick="showPage('custom')">Custom Tee</button>
+      </div>
+    </div>
+    <div class="hero-scroll"><div class="hero-scroll-line"></div>Scroll</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="marquee-item">PREMIUM STREETWEAR <span class="marquee-dot"></span></span>
+      <span class="marquee-item">CUSTOM PRINTS <span class="marquee-dot"></span></span>
+      <span class="marquee-item">OVERSIZED TEES <span class="marquee-dot"></span></span>
+      <span class="marquee-item">TAMIL COLLECTIONS <span class="marquee-dot"></span></span>
+      <span class="marquee-item">POLITICAL PRINTS <span class="marquee-dot"></span></span>
+      <span class="marquee-item">ANIME TEES <span class="marquee-dot"></span></span>
+      <span class="marquee-item">COD AVAILABLE <span class="marquee-dot"></span></span>
+      <span class="marquee-item">SHIP PAN INDIA <span class="marquee-dot"></span></span>
+      <span class="marquee-item">PREMIUM STREETWEAR <span class="marquee-dot"></span></span>
+      <span class="marquee-item">CUSTOM PRINTS <span class="marquee-dot"></span></span>
+      <span class="marquee-item">OVERSIZED TEES <span class="marquee-dot"></span></span>
+      <span class="marquee-item">TAMIL COLLECTIONS <span class="marquee-dot"></span></span>
+      <span class="marquee-item">POLITICAL PRINTS <span class="marquee-dot"></span></span>
+      <span class="marquee-item">ANIME TEES <span class="marquee-dot"></span></span>
+      <span class="marquee-item">COD AVAILABLE <span class="marquee-dot"></span></span>
+      <span class="marquee-item">SHIP PAN INDIA <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section style="padding:0;border-bottom:1px solid rgba(255,255,255,.05)">
+    <div class="features-strip">
+      <div class="feature-item"><div class="feature-icon">🚚</div><div class="feature-title">Free Shipping</div><div class="feature-desc">Orders above ₹999</div></div>
+      <div class="feature-item"><div class="feature-icon">💳</div><div class="feature-title">COD Available</div><div class="feature-desc">Pay on delivery</div></div>
+      <div class="feature-item"><div class="feature-icon">🔄</div><div class="feature-title">Easy Returns</div><div class="feature-desc">7-day return policy</div></div>
+      <div class="feature-item"><div class="feature-icon">✨</div><div class="feature-title">Premium Quality</div><div class="feature-desc">100% combed cotton</div></div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">New Arrivals</p>
+        <h2 class="section-title">FEATURED DROPS</h2>
+        <p class="section-subtitle">Handpicked styles for the bold and the brave</p>
+      </div>
+      <div class="product-grid" id="featuredGrid"></div>
+      <div style="text-align:center;margin-top:3rem">
+        <button class="btn-secondary" onclick="showPage('shop')">View All Products</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING -->
+  <section style="padding-top:0">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Best Sellers</p>
+        <h2 class="section-title">TRENDING NOW</h2>
+      </div>
+      <div class="product-grid" id="trendingGrid"></div>
+    </div>
+  </section>
+
+  <!-- TAMIL COLLECTION BANNER -->
+  <section style="padding:4rem 2rem;background:#0d0d0d;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)">
+    <div class="section-inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+        <div style="background:#111;padding:4rem 3rem;border:1px solid rgba(255,255,255,.06);cursor:pointer" onclick="showPage('shop');filterCategory('tamil')">
+          <p style="font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem">Collection</p>
+          <h3 style="font-family:var(--font-display);font-size:3rem;letter-spacing:3px;line-height:1;margin-bottom:1rem">TAMIL<br>PRINTS</h3>
+          <p style="font-size:.78rem;color:#666;margin-bottom:1.5rem">Wear your roots with pride. Bold Tamil typography tees.</p>
+          <span style="font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#aaa;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:.25rem">Shop Collection →</span>
+        </div>
+        <div style="background:#111;padding:4rem 3rem;border:1px solid rgba(255,255,255,.06);cursor:pointer" onclick="showPage('shop');filterCategory('political')">
+          <p style="font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem">Collection</p>
+          <h3 style="font-family:var(--font-display);font-size:3rem;letter-spacing:3px;line-height:1;margin-bottom:1rem">POLITICAL<br>PRINTS</h3>
+          <p style="font-size:.78rem;color:#666;margin-bottom:1.5rem">Bold statements. Make your voice heard through fashion.</p>
+          <span style="font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#aaa;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:.25rem">Shop Collection →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Reviews</p>
+        <h2 class="section-title">WHAT THEY SAY</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">The quality is insane for the price. My oversized Tamil tee gets compliments every time I wear it. WEAR MOPO is my go-to brand now!</p>
+          <p class="testimonial-author">Arjun K. — <span>Chennai</span></p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">Ordered a custom tee with my design and it came out perfect. The print quality is top notch. Fast delivery and great packaging too!</p>
+          <p class="testimonial-author">Priya M. — <span>Coimbatore</span></p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">The anime collection is fire! Love how the designs are unique and not just generic stuff. Soft fabric and perfect fit. Will definitely order again.</p>
+          <p class="testimonial-author">Vikram R. — <span>Bangalore</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM SECTION -->
+  <section style="padding-top:0">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Follow Us</p>
+        <h2 class="section-title">@WEARMOPO</h2>
+        <p class="section-subtitle">Tag us in your fit pics</p>
+      </div>
+      <div class="insta-grid">
+        <div class="insta-item" onclick="window.open('https://instagram.com','_blank')">
+          <div class="insta-placeholder" style="background:#1a1a1a;font-size:2rem">📸</div>
+          <div class="insta-overlay">📷</div>
+        </div>
+        <div class="insta-item" onclick="window.open('https://instagram.com','_blank')">
+          <div class="insta-placeholder" style="background:#151515;font-size:2rem">🎬</div>
+          <div class="insta-overlay">▶</div>
+        </div>
+        <div class="insta-item" onclick="window.open('https://instagram.com','_blank')">
+          <div class="insta-placeholder" style="background:#1a1a1a;font-size:2rem">📸</div>
+          <div class="insta-overlay">📷</div>
+        </div>
+        <div class="insta-item" onclick="window.open('https://instagram.com','_blank')">
+          <div class="insta-placeholder" style="background:#151515;font-size:2rem">🎬</div>
+          <div class="insta-overlay">▶</div>
+        </div>
+        <div class="insta-item" onclick="window.open('https://instagram.com','_blank')">
+          <div class="insta-placeholder" style="background:#1a1a1a;font-size:2rem">📸</div>
+          <div class="insta-overlay">📷</div>
+        </div>
+        <div class="insta-item" onclick="window.open('https://instagram.com','_blank')">
+          <div class="insta-placeholder" style="background:#151515;font-size:2rem">📸</div>
+          <div class="insta-overlay">📷</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <button class="btn-secondary" onclick="window.open('https://instagram.com','_blank')" style="display:inline-flex;align-items:center;gap:.5rem">Follow on Instagram</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,.05)">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">The MOPO Difference</p>
+        <h2 class="section-title">WHY CHOOSE US</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-number">01</div><div class="why-icon">🧵</div><div class="why-title">Premium Fabric</div><div class="why-desc">Crafted from 100% combed cotton for maximum softness, breathability, and durability that lasts wear after wear.</div></div>
+        <div class="why-card"><div class="why-number">02</div><div class="why-icon">🎨</div><div class="why-title">Bold Prints</div><div class="why-desc">High-quality DTF and screen printing that stays vibrant wash after wash. Your designs will never fade into the background.</div></div>
+        <div class="why-card"><div class="why-number">03</div><div class="why-icon">⚡</div><div class="why-title">Fast Delivery</div><div class="why-desc">Express shipping across India. Get your fit delivered in 3-5 working days, right to your doorstep with care.</div></div>
+        <div class="why-card"><div class="why-number">04</div><div class="why-icon">💰</div><div class="why-title">COD Available</div><div class="why-desc">Pay only when you receive your order. Shop with confidence knowing your money is safe until delivery.</div></div>
+        <div class="why-card"><div class="why-number">05</div><div class="why-icon">🔄</div><div class="why-title">Easy Returns</div><div class="why-desc">Not satisfied? No problem. Our hassle-free 7-day return policy ensures you only keep what you love.</div></div>
+        <div class="why-card"><div class="why-number">06</div><div class="why-icon">📱</div><div class="why-title">WhatsApp Support</div><div class="why-desc">Direct ordering and support via WhatsApp. Talk to a real person, get quick responses and personalised service.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIPPING BANNER -->
+  <div class="shipping-banner">
+    <p class="shipping-banner-text">🚚 FREE SHIPPING ACROSS INDIA ON ORDERS ABOVE ₹999 · COD AVAILABLE · 3-5 DAY DELIVERY</p>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter-section">
+    <div class="newsletter-inner">
+      <h2 class="newsletter-title">STAY IN THE LOOP</h2>
+      <p class="newsletter-subtitle">Get early access to drops, exclusive offers, and behind-the-scenes content</p>
+      <div class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Your email address">
+        <button class="newsletter-btn" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo">WEAR <span>MOPO</span></div>
+        <p class="footer-tagline">Premium streetwear crafted for the bold. Tamil pride, global style.</p>
+        <div class="footer-socials">
+          <div class="footer-social" onclick="window.open('https://instagram.com','_blank')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          <div class="footer-social" onclick="openWhatsApp('Hi WEAR MOPO!')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Shop</p>
+        <div class="footer-links">
+          <a href="#" onclick="showPage('shop');return false">All Products</a>
+          <a href="#" onclick="showPage('shop');filterCategory('oversized');return false">Oversized Tees</a>
+          <a href="#" onclick="showPage('shop');filterCategory('tamil');return false">Tamil Prints</a>
+          <a href="#" onclick="showPage('shop');filterCategory('anime');return false">Anime Tees</a>
+          <a href="#" onclick="showPage('custom');return false">Custom Tees</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Info</p>
+        <div class="footer-links">
+          <a href="#" onclick="showPage('about');return false">About Us</a>
+          <a href="#" onclick="showPage('contact');return false">Contact</a>
+          <a href="#" onclick="alert('Shipping Policy: Free shipping on orders above ₹999. Delivery in 3-5 working days.')">Shipping Policy</a>
+          <a href="#" onclick="alert('Return Policy: 7-day hassle-free returns. Items must be unworn and unwashed.')">Return Policy</a>
+          <a href="#" onclick="alert('Terms: By purchasing, you agree to our terms of service.')">Terms & Conditions</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <div class="footer-links">
+          <a href="#" onclick="openWhatsApp('Hi WEAR MOPO!')">📲 WhatsApp Order</a>
+          <a href="mailto:hello@wearmopo.com">📧 hello@wearmopo.com</a>
+          <a href="#" onclick="window.open('https://instagram.com','_blank')">📸 @wearmopo</a>
+          <a href="#" onclick="showPage('admin-login');return false" style="color:#333;font-size:.7rem;margin-top:1rem">Admin Login</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 WEAR MOPO. All rights reserved. Made with ❤ in Tamil Nadu.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">COD</span>
+        <span class="footer-badge">PAN INDIA</span>
+        <span class="footer-badge">SECURE</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════ SHOP PAGE ══════════ -->
+<div id="page-shop" class="page" style="display:none;padding-top:80px">
+  <div style="padding:4rem 2rem 2rem;max-width:1400px;margin:auto">
+    <div style="margin-bottom:2rem">
+      <p style="font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent)">Browse</p>
+      <h1 style="font-family:var(--font-display);font-size:3.5rem;letter-spacing:4px;line-height:1">ALL PRODUCTS</h1>
+    </div>
+    <div class="cod-banner">
+      <div class="cod-banner-text">
+        <span class="cod-badge-large">COD</span>
+        Cash on Delivery available · Free shipping above ₹999 · Pan India delivery in 3-5 days
+      </div>
+      <span style="font-size:.72rem;color:var(--accent);cursor:pointer" onclick="openWhatsApp('Hi WEAR MOPO! I want to place an order.')">Order via WhatsApp →</span>
+    </div>
+    <div class="filter-bar" id="shopFilters">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" onclick="filterCategory('all',this)">All</button>
+      <button class="filter-btn" onclick="filterCategory('oversized',this)">Oversized</button>
+      <button class="filter-btn" onclick="filterCategory('anime',this)">Anime</button>
+      <button class="filter-btn" onclick="filterCategory('tamil',this)">Tamil Prints</button>
+      <button class="filter-btn" onclick="filterCategory('political',this)">Political</button>
+      <button class="filter-btn" onclick="filterCategory('custom',this)">Custom</button>
+      <select class="size-select" onchange="filterSize(this.value)" style="margin-left:.5rem">
+        <option value="all">All Sizes</option>
+        <option value="S">Size S</option>
+        <option value="M">Size M</option>
+        <option value="L">Size L</option>
+        <option value="XL">Size XL</option>
+        <option value="XXL">Size XXL</option>
+      </select>
+      <select class="price-select" onchange="filterPrice(this.value)">
+        <option value="all">All Prices</option>
+        <option value="0-499">Under ₹499</option>
+        <option value="500-799">₹500 - ₹799</option>
+        <option value="800-1200">₹800+</option>
+      </select>
+    </div>
+    <div class="product-grid" id="shopGrid"></div>
+  </div>
+</div>
+
+<!-- ══════════ CUSTOM TEE PAGE ══════════ -->
+<div id="page-custom" class="page" style="display:none;padding-top:80px">
+  <section class="custom-tee-section">
+    <div class="section-inner">
+      <div class="custom-tee-inner">
+        <div>
+          <p style="font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem">Design Your Own</p>
+          <h1 style="font-family:var(--font-display);font-size:clamp(3rem,6vw,5rem);letter-spacing:4px;line-height:.95;margin-bottom:1.25rem">CUSTOM<br>TEE</h1>
+          <p style="font-size:.9rem;color:#666;line-height:1.7;max-width:480px;margin-bottom:2rem">Express yourself with a fully custom T-shirt. Upload your design, choose your style, and we'll print it with premium quality. Perfect for personal, events, or gifting.</p>
+          <div class="custom-steps">
+            <div class="custom-step"><span class="step-num">01</span><div class="step-info"><div class="step-title">Choose Your Tee</div><div class="step-desc">Pick from oversized, regular, polo, or cropped styles in any colour.</div></div></div>
+            <div class="custom-step"><span class="step-num">02</span><div class="step-info"><div class="step-title">Send Your Design</div><div class="step-desc">Share your artwork via WhatsApp. We support PNG, JPG, PDF formats.</div></div></div>
+            <div class="custom-step"><span class="step-num">03</span><div class="step-info"><div class="step-title">We'll Quote You</div><div class="step-desc">Receive a price quote based on quantity, print area, and colours used.</div></div></div>
+            <div class="custom-step"><span class="step-num">04</span><div class="step-info"><div class="step-title">Confirm &amp; Receive</div><div class="step-desc">Approve the mockup, make payment, and get your custom tees delivered!</div></div></div>
+          </div>
+          <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+            <button class="btn-wa" onclick="openWhatsApp('Hi WEAR MOPO! I want to order a custom T-shirt. Can you help me?')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+              Start Custom Order
+            </button>
+            <button class="btn-secondary">View Pricing Guide</button>
+          </div>
+        </div>
+        <div>
+          <div class="custom-tee-visual" style="font-size:1rem;letter-spacing:2px;color:#333;text-align:center">
+            <div>
+              <div style="font-family:var(--font-display);font-size:5rem;color:rgba(255,255,255,.05);margin-bottom:1rem">YOUR<br>DESIGN</div>
+              <div style="font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:#333">Send us your artwork</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:1px">
+            <div style="background:#0d0d0d;padding:1.25rem;border:1px solid rgba(255,255,255,.06)">
+              <div style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:.3rem">Min. Quantity</div>
+              <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--accent)">1 Piece</div>
+            </div>
+            <div style="background:#0d0d0d;padding:1.25rem;border:1px solid rgba(255,255,255,.06)">
+              <div style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:.3rem">Delivery Time</div>
+              <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--accent)">5-7 Days</div>
+            </div>
+            <div style="background:#0d0d0d;padding:1.25rem;border:1px solid rgba(255,255,255,.06)">
+              <div style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:.3rem">Print Types</div>
+              <div style="font-size:.78rem;color:#aaa;margin-top:.25rem">DTF · Screen · Sublimation</div>
+            </div>
+            <div style="background:#0d0d0d;padding:1.25rem;border:1px solid rgba(255,255,255,.06)">
+              <div style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:.3rem">Starting From</div>
+              <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--accent)">₹399</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ ABOUT PAGE ══════════ -->
+<div id="page-about" class="page" style="display:none;padding-top:64px">
+  <div class="about-hero">
+    <p style="font-size:.6rem;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem">Our Story</p>
+    <h1 style="font-family:var(--font-display);font-size:clamp(3rem,8vw,6rem);letter-spacing:5px;line-height:.95">WEAR MOPO</h1>
+    <p style="color:#555;margin-top:.75rem;font-size:.9rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6">Born in Tamil Nadu, made for the world</p>
+  </div>
+  <section>
+    <div class="about-grid">
+      <div class="about-visual">WEAR MOPO</div>
+      <div class="about-text">
+        <p class="about-eyebrow">The Brand</p>
+        <h2 class="about-heading">CULTURE IS FASHION</h2>
+        <p class="about-body">WEAR MOPO was born from a simple idea — that streetwear should reflect who you are. Founded in the heart of Tamil Nadu, we started as a passion project by a group of friends who believed fashion could carry culture, identity, and attitude all at once.</p>
+        <p class="about-body">Today we create premium T-shirts that blend Tamil pride with contemporary streetwear aesthetics. From bold Tamil typography to anime-inspired graphics to bold political statements — every piece is designed to make you stand out.</p>
+        <p class="about-body">We believe in quality you can feel, designs you can own, and prices that don't hurt. Every tee is crafted with premium combed cotton and printed with cutting-edge techniques for long-lasting colour and crispness.</p>
+        <div class="about-values">
+          <div class="about-val"><div class="about-val-title">Quality</div><div class="about-val-desc">Premium fabrics, premium prints, uncompromised</div></div>
+          <div class="about-val"><div class="about-val-title">Culture</div><div class="about-val-desc">Tamil roots, global style, bold identity</div></div>
+          <div class="about-val"><div class="about-val-title">Community</div><div class="about-val-desc">Built by and for the streets of Tamil Nadu</div></div>
+          <div class="about-val"><div class="about-val-title">Accessibility</div><div class="about-val-desc">Fashion for everyone, affordable luxury</div></div>
+        </div>
+        <div style="margin-top:2rem">
+          <button class="btn-primary" onclick="showPage('shop')">Shop the Collection</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ CONTACT PAGE ══════════ -->
+<div id="page-contact" class="page" style="display:none;padding-top:80px">
+  <section>
+    <div class="section-inner">
+      <div style="margin-bottom:3rem">
+        <p style="font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent)">Get In Touch</p>
+        <h1 style="font-family:var(--font-display);font-size:3.5rem;letter-spacing:4px;line-height:1">CONTACT US</h1>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2 class="contact-info-title">Let's Talk Fashion</h2>
+          <p class="contact-info-desc">Have questions about sizing, custom orders, or bulk purchases? We're here to help. Reach out via WhatsApp for the fastest response.</p>
+          <div class="contact-item">
+            <div class="contact-item-icon">📲</div>
+            <div><div class="contact-item-label">WhatsApp</div><div class="contact-item-val" style="cursor:pointer;color:var(--accent)" onclick="openWhatsApp('Hi WEAR MOPO!')">+91 98765 43210</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div><div class="contact-item-label">Email</div><div class="contact-item-val">hello@wearmopo.com</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div><div class="contact-item-label">Location</div><div class="contact-item-val">Coimbatore, Tamil Nadu, India</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📸</div>
+            <div><div class="contact-item-label">Instagram</div><div class="contact-item-val" style="cursor:pointer;color:var(--accent)" onclick="window.open('https://instagram.com','_blank')">@wearmopo</div></div>
+          </div>
+          <div style="margin-top:2rem;padding:1.5rem;background:#0d0d0d;border:1px solid rgba(255,255,255,.06)">
+            <p style="font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:.5rem">Fastest Way to Order</p>
+            <button class="btn-wa" style="width:100%;justify-content:center" onclick="openWhatsApp('Hi WEAR MOPO! I want to place an order.')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+              Order on WhatsApp Now
+            </button>
+          </div>
+        </div>
+        <div class="contact-form">
+          <p class="contact-form-title">Send a Message</p>
+          <div class="contact-form-fields">
+            <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" type="text" placeholder="Your name"></div>
+            <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="your@email.com"></div>
+            <div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" placeholder="+91 xxxxxxxx"></div>
+            <div class="form-group"><label class="form-label">Subject</label>
+              <select class="form-select" style="background:#0a0a0a;border:1px solid rgba(255,255,255,.08);color:var(--white);padding:.6rem .8rem;font-size:.8rem;font-family:var(--font-body);outline:none;width:100%">
+                <option>General Inquiry</option><option>Custom Order</option><option>Bulk Order</option><option>Return/Refund</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell us more..."></textarea></div>
+            <button class="contact-submit" onclick="alert('Message sent! We will respond within 24 hours via WhatsApp.')">Send Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ ADMIN LOGIN ══════════ -->
+<div id="page-admin-login" class="login-page" style="display:none">
+  <div class="login-box">
+    <div class="login-logo">WEAR <span>MOPO</span></div>
+    <p class="login-sub">Admin Dashboard</p>
+    <div class="login-form">
+      <div class="form-group"><label class="form-label">Username</label><input class="form-input" type="text" id="loginUser" placeholder="admin" onkeyup="if(event.key==='Enter')doLogin()"></div>
+      <div class="form-group"><label class="form-label">Password</label><input class="form-input" type="password" id="loginPass" placeholder="••••••••" onkeyup="if(event.key==='Enter')doLogin()"></div>
+      <button class="login-submit" onclick="doLogin()">Access Dashboard</button>
+      <p class="login-err" id="loginErr">Invalid credentials. Try admin / mopo2024</p>
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;font-size:.65rem;color:#333;cursor:pointer" onclick="showPage('home')">← Back to Store</p>
+  </div>
+</div>
+
+<!-- ══════════ ADMIN DASHBOARD ══════════ -->
+<div id="page-admin" class="admin-page" style="display:none">
+  <aside class="admin-sidebar">
+    <div class="admin-logo">
+      <div class="admin-logo-text">WEAR MOPO</div>
+      <div class="admin-logo-sub">Admin Panel</div>
+    </div>
+    <nav class="admin-nav">
+      <p class="admin-nav-section">Overview</p>
+      <div class="admin-nav-item active" onclick="showAdminTab('dashboard',this)"><span class="admin-nav-icon">📊</span> Dashboard</div>
+      <p class="admin-nav-section">Catalogue</p>
+      <div class="admin-nav-item" onclick="showAdminTab('products',this)"><span class="admin-nav-icon">👕</span> Products</div>
+      <div class="admin-nav-item" onclick="showAdminTab('add-product',this)"><span class="admin-nav-icon">➕</span> Add Product</div>
+      <div class="admin-nav-item" onclick="showAdminTab('categories',this)"><span class="admin-nav-icon">🏷</span> Categories</div>
+      <p class="admin-nav-section">Store</p>
+      <div class="admin-nav-item" onclick="showAdminTab('orders',this)"><span class="admin-nav-icon">📦</span> Orders</div>
+      <div class="admin-nav-item" onclick="showAdminTab('banners',this)"><span class="admin-nav-icon">🖼</span> Banners</div>
+      <div class="admin-nav-item" onclick="showAdminTab('analytics',this)"><span class="admin-nav-icon">📈</span> Analytics</div>
+      <p class="admin-nav-section">Settings</p>
+      <div class="admin-nav-item" onclick="showPage('home')"><span class="admin-nav-icon">🏪</span> View Store</div>
+      <div class="admin-nav-item" onclick="showPage('home')" style="color:#e05c5c"><span class="admin-nav-icon">🚪</span> Logout</div>
+    </nav>
+  </aside>
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <span class="admin-topbar-title" id="adminTabTitle">Dashboard</span>
+      <div class="admin-topbar-user"><div class="admin-avatar">AD</div><span>admin@wearmopo.com</span></div>
+    </div>
+    <div class="admin-content" id="adminContent">
+      <!-- Dashboard -->
+      <div id="tab-dashboard">
+        <div class="admin-stats">
+          <div class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value">₹84,200</div><div class="stat-change">↑ 23% this month</div></div>
+          <div class="stat-card"><div class="stat-label">Orders Today</div><div class="stat-value">12</div><div class="stat-change">↑ 4 vs yesterday</div></div>
+          <div class="stat-card"><div class="stat-label">Products</div><div class="stat-value">48</div><div class="stat-change">6 low stock</div></div>
+          <div class="stat-card"><div class="stat-label">WhatsApp Clicks</div><div class="stat-value">347</div><div class="stat-change">↑ 18% this week</div></div>
+        </div>
+        <div class="admin-grid-2">
+          <div class="admin-card">
+            <div class="admin-card-title"><span>Recent Orders</span><button class="admin-btn ghost" style="font-size:.6rem;padding:.35rem .75rem" onclick="showAdminTab('orders',null)">View All</button></div>
+            <table class="admin-table">
+              <thead><tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Amount</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>#WM1042</td><td>Karthik R.</td><td>Tamil Pride Tee</td><td>₹549</td><td><span class="status-badge status-delivered">Delivered</span></td></tr>
+                <tr><td>#WM1041</td><td>Priya S.</td><td>Oversized Black</td><td>₹699</td><td><span class="status-badge status-processing">Processing</span></td></tr>
+                <tr><td>#WM1040</td><td>Arjun M.</td><td>Anime Tee - Naruto</td><td>₹799</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+                <tr><td>#WM1039</td><td>Deepa K.</td><td>Custom Tee</td><td>₹1,199</td><td><span class="status-badge status-delivered">Delivered</span></td></tr>
+                <tr><td>#WM1038</td><td>Ravi T.</td><td>Political Print Tee</td><td>₹499</td><td><span class="status-badge status-processing">Processing</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <div class="admin-card">
+              <div class="admin-card-title"><span>Top Products</span></div>
+              <div style="display:flex;flex-direction:column;gap:.75rem">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="font-size:.78rem;color:#aaa">Tamil Pride Tee</span><span style="font-size:.7rem;color:var(--accent)">142 sold</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="font-size:.78rem;color:#aaa">Oversized Black</span><span style="font-size:.7rem;color:var(--accent)">98 sold</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="font-size:.78rem;color:#aaa">Naruto Anime Tee</span><span style="font-size:.7rem;color:var(--accent)">87 sold</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="font-size:.78rem;color:#aaa">Political Print</span><span style="font-size:.7rem;color:var(--accent)">74 sold</span></div>
+              </div>
+            </div>
+            <div class="admin-card">
+              <div class="admin-card-title"><span>Quick Actions</span></div>
+              <div style="display:flex;flex-direction:column;gap:.5rem">
+                <button class="admin-btn primary" style="width:100%;text-align:left" onclick="showAdminTab('add-product',null)">➕ Add New Product</button>
+                <button class="admin-btn ghost" style="width:100%;text-align:left" onclick="openWhatsApp('Hi! I am checking on pending orders.')">📲 Check WhatsApp Orders</button>
+                <button class="admin-btn ghost" style="width:100%;text-align:left" onclick="showAdminTab('banners',null)">🖼 Update Banner</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Products Tab -->
+      <div id="tab-products" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+          <div style="font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#555">48 Products Total</div>
+          <button class="admin-btn primary" onclick="showAdminTab('add-product',null)">+ Add Product</button>
+        </div>
+        <div class="admin-card">
+          <table class="admin-table">
+            <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="adminProductTable"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Add Product Tab -->
+      <div id="tab-add-product" style="display:none">
+        <div class="admin-card">
+          <div class="admin-card-title"><span>Add New Product</span></div>
+          <div class="add-product-form">
+            <div class="form-group"><label class="form-label">Product Name</label><input class="form-input" type="text" placeholder="e.g. Tamil Pride Oversized Tee"></div>
+            <div class="form-group"><label class="form-label">Price (₹)</label><input class="form-input" type="number" placeholder="599"></div>
+            <div class="form-group"><label class="form-label">Category</label>
+              <select class="form-select" style="background:#0a0a0a;border:1px solid rgba(255,255,255,.08);color:var(--white);padding:.6rem .8rem;font-size:.8rem;font-family:var(--font-body);outline:none;width:100%">
+                <option>Oversized</option><option>Tamil Prints</option><option>Anime</option><option>Political</option><option>Custom</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Stock</label><input class="form-input" type="number" placeholder="50"></div>
+            <div class="form-group"><label class="form-label">Sizes Available</label><input class="form-input" type="text" placeholder="S, M, L, XL, XXL"></div>
+            <div class="form-group"><label class="form-label">Colors</label><input class="form-input" type="text" placeholder="Black, White, Grey"></div>
+            <div class="form-group"><label class="form-label">Fabric</label><input class="form-input" type="text" placeholder="100% Combed Cotton 240GSM"></div>
+            <div class="form-group"><label class="form-label">Badge</label>
+              <select class="form-select" style="background:#0a0a0a;border:1px solid rgba(255,255,255,.08);color:var(--white);padding:.6rem .8rem;font-size:.8rem;font-family:var(--font-body);outline:none;width:100%">
+                <option>None</option><option>New</option><option>Hot</option><option>COD</option>
+              </select>
+            </div>
+            <div class="form-group full"><label class="form-label">Description</label><textarea class="form-textarea" placeholder="Describe the product..."></textarea></div>
+            <div class="form-group full">
+              <label class="form-label">Product Images</label>
+              <div class="upload-zone" onclick="alert('In the full version, this uploads images to your server/MongoDB.')">
+                <div class="upload-icon">📷</div>
+                <div class="upload-text">Click to upload product images<br><span style="font-size:.65rem;color:#444">PNG, JPG up to 5MB</span></div>
+              </div>
+            </div>
+            <div class="form-group full" style="display:flex;gap:.75rem;justify-content:flex-end">
+              <button class="admin-btn ghost" onclick="showAdminTab('products',null)">Cancel</button>
+              <button class="admin-btn primary" onclick="alert('Product saved! In the full version, this saves to MongoDB.')">Save Product</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Orders Tab -->
+      <div id="tab-orders" style="display:none">
+        <div class="admin-card">
+          <div class="admin-card-title"><span>All Orders</span><div style="display:flex;gap:.5rem"><button class="admin-btn ghost" style="font-size:.6rem;padding:.35rem .75rem">Export</button></div></div>
+          <table class="admin-table">
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Size</th><th>Amount</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>#WM1042</td><td>Karthik R.</td><td>Tamil Pride Tee</td><td>L</td><td>₹549</td><td>07 May</td><td><span class="status-badge status-delivered">Delivered</span></td><td><button class="admin-btn ghost" style="font-size:.6rem;padding:.25rem .6rem">View</button></td></tr>
+              <tr><td>#WM1041</td><td>Priya S.</td><td>Oversized Black</td><td>M</td><td>₹699</td><td>06 May</td><td><span class="status-badge status-processing">Processing</span></td><td><button class="admin-btn ghost" style="font-size:.6rem;padding:.25rem .6rem">View</button></td></tr>
+              <tr><td>#WM1040</td><td>Arjun M.</td><td>Naruto Tee</td><td>XL</td><td>₹799</td><td>06 May</td><td><span class="status-badge status-pending">Pending</span></td><td><button class="admin-btn ghost" style="font-size:.6rem;padding:.25rem .6rem">View</button></td></tr>
+              <tr><td>#WM1039</td><td>Deepa K.</td><td>Custom Tee</td><td>M</td><td>₹1,199</td><td>05 May</td><td><span class="status-badge status-delivered">Delivered</span></td><td><button class="admin-btn ghost" style="font-size:.6rem;padding:.25rem .6rem">View</button></td></tr>
+              <tr><td>#WM1038</td><td>Ravi T.</td><td>Political Print</td><td>L</td><td>₹499</td><td>05 May</td><td><span class="status-badge status-processing">Processing</span></td><td><button class="admin-btn ghost" style="font-size:.6rem;padding:.25rem .6rem">View</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Banners Tab -->
+      <div id="tab-banners" style="display:none">
+        <div class="admin-card">
+          <div class="admin-card-title"><span>Homepage Banners</span><button class="admin-btn primary" onclick="alert('Upload new banner in the full version')">+ Add Banner</button></div>
+          <div style="display:flex;flex-direction:column;gap:1rem">
+            <div style="background:#0d0d0d;border:1px solid rgba(255,255,255,.08);padding:1.25rem;display:flex;justify-content:space-between;align-items:center">
+              <div style="display:flex;align-items:center;gap:1rem"><div style="width:80px;height:50px;background:#111;border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#333">HERO</div><div><div style="font-size:.78rem;color:var(--white)">Main Hero Banner</div><div style="font-size:.65rem;color:#555">Active · Full Width</div></div></div>
+              <div style="display:flex;gap:.5rem"><button class="admin-btn ghost" style="font-size:.6rem;padding:.3rem .6rem">Edit</button><button class="admin-btn danger" style="font-size:.6rem;padding:.3rem .6rem">Delete</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Analytics Tab -->
+      <div id="tab-analytics" style="display:none">
+        <div class="admin-stats" style="margin-bottom:1.5rem">
+          <div class="stat-card"><div class="stat-label">This Month Revenue</div><div class="stat-value">₹84,200</div><div class="stat-change">↑ 23%</div></div>
+          <div class="stat-card"><div class="stat-label">Total Orders</div><div class="stat-value">312</div><div class="stat-change">↑ 18%</div></div>
+          <div class="stat-card"><div class="stat-label">Avg Order Value</div><div class="stat-value">₹682</div><div class="stat-change">↑ 5%</div></div>
+          <div class="stat-card"><div class="stat-label">WhatsApp Conv.</div><div class="stat-value">68%</div><div class="stat-change">↑ 11%</div></div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-card-title"><span>Sales by Category</span></div>
+          <div style="display:flex;flex-direction:column;gap:.85rem">
+            <div><div style="display:flex;justify-content:space-between;font-size:.72rem;margin-bottom:.3rem"><span style="color:#aaa">Tamil Prints</span><span style="color:var(--accent)">38%</span></div><div style="height:6px;background:#1a1a1a;border-radius:0"><div style="width:38%;height:100%;background:var(--accent)"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:.72rem;margin-bottom:.3rem"><span style="color:#aaa">Oversized Tees</span><span style="color:var(--accent)">28%</span></div><div style="height:6px;background:#1a1a1a;border-radius:0"><div style="width:28%;height:100%;background:var(--accent)"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:.72rem;margin-bottom:.3rem"><span style="color:#aaa">Anime Tees</span><span style="color:var(--accent)">18%</span></div><div style="height:6px;background:#1a1a1a;border-radius:0"><div style="width:18%;height:100%;background:var(--accent)"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:.72rem;margin-bottom:.3rem"><span style="color:#aaa">Custom Tees</span><span style="color:var(--accent)">10%</span></div><div style="height:6px;background:#1a1a1a;border-radius:0"><div style="width:10%;height:100%;background:var(--accent)"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:.72rem;margin-bottom:.3rem"><span style="color:#aaa">Political Prints</span><span style="color:var(--accent)">6%</span></div><div style="height:6px;background:#1a1a1a;border-radius:0"><div style="width:6%;height:100%;background:var(--accent)"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Categories Tab -->
+      <div id="tab-categories" style="display:none">
+        <div class="admin-card">
+          <div class="admin-card-title"><span>Manage Categories</span><button class="admin-btn primary" onclick="alert('Add category in the full version')">+ Add Category</button></div>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.85rem;background:#0d0d0d;border:1px solid rgba(255,255,255,.06)"><div><div style="font-size:.78rem;color:var(--white)">Oversized Tees</div><div style="font-size:.65rem;color:#555">12 products</div></div><div style="display:flex;gap:.5rem"><button class="admin-btn ghost" style="font-size:.6rem;padding:.25rem .6rem">Edit</button><button class="admin-btn danger" style="font-size:.6rem;padding:.25rem .6rem">Del</button></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.85rem;background:#0d0d0d;border:1px solid rgba(255,255,255,.06)"><div><div style="font-size:.78rem;color:var(--white)">Tamil Prints</div><div style="font-size:.65rem;color:#555">18 products</div></div><div style="display:flex;gap:.5rem"><button class="admin-btn ghost" style="font-size:.6rem;padding:.25rem .6rem">Edit</button><button class="admin-btn danger" style="font-size:.6rem;padding:.25rem .6rem">Del</button></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.85rem;background:#0d0d0d;border:1px solid rgba(255,255,255,.06)"><div><div style="font-size:.78rem;color:var(--white)">Anime Tees</div><div style="font-size:.65rem;color:#555">10 products</div></div><div style="display:flex;gap:.5rem"><button class="admin-btn ghost" style="font-size:.6rem;padding:.25rem .6rem">Edit</button><button class="admin-btn danger" style="font-size:.6rem;padding:.25rem .6rem">Del</button></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.85rem;background:#0d0d0d;border:1px solid rgba(255,255,255,.06)"><div><div style="font-size:.78rem;color:var(--white)">Political Prints</div><div style="font-size:.65rem;color:#555">8 products</div></div><div style="display:flex;gap:.5rem"><button class="admin-btn ghost" style="font-size:.6rem;padding:.25rem .6rem">Edit</button><button class="admin-btn danger" style="font-size:.6rem;padding:.25rem .6rem">Del</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const WA_NUMBER = '919751420851';
+const products = [
+  {id:1,name:'Tamil Pride Oversized Tee',price:549,category:'tamil',badge:'hot',sizes:['S','M','L','XL','XXL'],colors:['#0a0a0a','#fafafa','#888'],fabric:'280GSM Combed Cotton',desc:'Bold Tamil typography printed on a premium oversized silhouette. A statement piece for those who wear their roots with pride.',emoji:'🖤',bg:'linear-gradient(135deg,#1a1a1a,#111)',trending:true,featured:true},
+  {id:2,name:'Naruto Seal Anime Tee',price:699,category:'anime',badge:'new',sizes:['S','M','L','XL'],colors:['#0a0a0a','#1a1a1a'],fabric:'240GSM Combed Cotton',desc:'Premium anime-inspired graphic tee with Naruto seal artwork. Soft, durable, and built for those who live the culture.',emoji:'⚡',bg:'linear-gradient(135deg,#111,#1a1a1a)',trending:true,featured:false},
+  {id:3,name:'Oversized Black Streetwear',price:799,category:'oversized',badge:'',sizes:['M','L','XL','XXL'],colors:['#0a0a0a','#fafafa'],fabric:'300GSM Heavy Cotton',desc:'The essential oversized black tee. Heavyweight fabric, dropped shoulders, boxy fit — the foundation of every streetwear wardrobe.',emoji:'🕶',bg:'linear-gradient(135deg,#0a0a0a,#1a1a1a)',trending:false,featured:true},
+  {id:4,name:'Resistance Political Tee',price:499,category:'political',badge:'',sizes:['S','M','L','XL','XXL'],colors:['#0a0a0a','#fafafa','#1a1a2e'],fabric:'240GSM Combed Cotton',desc:'Make your voice heard. Bold political artwork tee for those who stand for something. Every purchase plants a tree.',emoji:'✊',bg:'linear-gradient(135deg,#111,#0a0a0a)',trending:false,featured:true},
+  {id:5,name:'Vanakkam Tamil Crop Tee',price:599,category:'tamil',badge:'new',sizes:['S','M','L'],colors:['#fafafa','#c8a96e','#888'],fabric:'220GSM Combed Cotton',desc:'Cropped fit with iconic Tamil greeting artwork. Lightweight and breathable — perfect for the Tamil Nadu heat.',emoji:'🌟',bg:'linear-gradient(135deg,#1a1a1a,#141414)',trending:true,featured:true},
+  {id:6,name:'One Piece Oversized Tee',price:749,category:'anime',badge:'hot',sizes:['M','L','XL','XXL'],colors:['#0a0a0a','#1a1a2e'],fabric:'280GSM Combed Cotton',desc:'Sail with the Straw Hats. Premium oversized anime tee with premium chest print and back artwork.',emoji:'🏴‍☠️',bg:'linear-gradient(135deg,#0f0f1a,#111)',trending:true,featured:false},
+  {id:7,name:'Leader Print Graphic Tee',price:449,category:'political',badge:'cod',sizes:['S','M','L','XL','XXL'],colors:['#0a0a0a','#fafafa'],fabric:'240GSM Combed Cotton',desc:'Inspired by the icons who shaped Tamil Nadu. A tribute tee with powerful graphic illustration.',emoji:'🎯',bg:'linear-gradient(135deg,#111,#0a0a0a)',trending:false,featured:false},
+  {id:8,name:'Custom Print Tee',price:399,category:'custom',badge:'',sizes:['S','M','L','XL','XXL'],colors:['#0a0a0a','#fafafa','#888','#c8a96e'],fabric:'240GSM Combed Cotton',desc:'Upload your design and get it printed. Any design, any colour, minimum 1 piece. WhatsApp us to start.',emoji:'✏️',bg:'linear-gradient(135deg,#141414,#111)',trending:false,featured:false},
+];
+
+let activeCategory = 'all';
+let activeSizeFilter = 'all';
+let activePriceFilter = 'all';
+
+function createProductCard(p){
+  const colorDots = p.colors.map(c=>`<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${c};border:1px solid rgba(255,255,255,.2);margin-right:3px"></span>`).join('');
+  return `<div class="product-card">
+    <div class="product-img-wrap">
+      <div class="product-img-placeholder" style="background:${p.bg}">
+        <span style="font-size:4rem">${p.emoji}</span>
+      </div>
+      <div class="product-card-overlay">
+        <div class="product-card-btns">
+          <button class="card-btn" onclick="openModal(${p.id})">Quick View</button>
+          <button class="card-btn wa" onclick="orderOnWhatsApp('${p.name}','${p.price}')">Order</button>
+        </div>
+      </div>
+      <span class="quick-view-tag" onclick="openModal(${p.id})">Quick View</span>
+      ${p.badge?`<span class="product-badge badge-${p.badge}">${p.badge.toUpperCase()}</span>`:''}
+    </div>
+    <div class="product-info">
+      <div class="product-name">${p.name}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.3rem">
+        <div class="product-price">₹${p.price}</div>
+        <div>${colorDots}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderGrid(containerId, items){
+  const el = document.getElementById(containerId);
+  if(el) el.innerHTML = items.map(createProductCard).join('');
+}
+
+function renderFeatured(){
+  renderGrid('featuredGrid', products.filter(p=>p.featured).slice(0,4));
+}
+function renderTrending(){
+  renderGrid('trendingGrid', products.filter(p=>p.trending).slice(0,4));
+}
+function renderShop(){
+  let items = products;
+  if(activeCategory !== 'all') items = items.filter(p=>p.category===activeCategory);
+  if(activeSizeFilter !== 'all') items = items.filter(p=>p.sizes.includes(activeSizeFilter));
+  if(activePriceFilter !== 'all'){
+    const [min,max] = activePriceFilter.split('-').map(Number);
+    items = items.filter(p=>p.price >= min && (!max || p.price <= max));
+  }
+  renderGrid('shopGrid', items);
+}
+
+function filterCategory(cat, btn){
+  activeCategory = cat;
+  document.querySelectorAll('#shopFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  renderShop();
+}
+function filterSize(val){ activeSizeFilter = val; renderShop(); }
+function filterPrice(val){ activePriceFilter = val; renderShop(); }
+
+function openModal(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalPrice').textContent = '₹' + p.price;
+  document.getElementById('modalCategory').textContent = p.category.toUpperCase();
+  document.getElementById('modalFabric').textContent = p.fabric;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalImg').innerHTML = `<div style="background:${p.bg};width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem">${p.emoji}</div>`;
+  document.getElementById('modalImg').style.background = 'transparent';
+  document.getElementById('modalSizes').innerHTML = p.sizes.map(s=>`<div class="size-opt" onclick="this.parentNode.querySelectorAll('.size-opt').forEach(x=>x.classList.remove('sel'));this.classList.add('sel');window._selSize='${s}'">${s}</div>`).join('');
+  document.getElementById('modalColors').innerHTML = p.colors.map(c=>`<div class="color-dot" style="background:${c};border:2px solid ${c==='#0a0a0a'?'#555':'rgba(255,255,255,.3)'}" onclick="this.parentNode.querySelectorAll('.color-dot').forEach(x=>x.classList.remove('sel'));this.classList.add('sel');window._selColor='${c}'"></div>`).join('');
+  document.getElementById('modalWaBtn').onclick = ()=>orderOnWhatsApp(p.name, p.price, window._selSize||'', window._selColor||'');
+  document.getElementById('productModal').classList.add('open');
+  window._selSize = ''; window._selColor = '';
+}
+
+function closeModal(e){
+  if(e.target.id === 'productModal') document.getElementById('productModal').classList.remove('open');
+}
+
+function orderOnWhatsApp(name, price, size='', color=''){
+  let msg = `Hi WEAR MOPO! I want to order this T-shirt.\n\n*Product:* ${name}\n*Price:* ₹${price}`;
+  if(size) msg += `\n*Size:* ${size}`;
+  if(color) msg += `\n*Color:* ${color}`;
+  msg += `\n\nPlease confirm availability and share payment details. Thank you!`;
+  openWhatsApp(msg);
+}
+
+function openWhatsApp(msg){
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function showPage(page){
+  const allPages = ['home','shop','custom','about','contact','admin-login','admin'];
+  allPages.forEach(p=>{
+    const el = document.getElementById(`page-${p}`);
+    if(el){
+      el.style.display = 'none';
+      el.classList.remove('active');
+    }
+  });
+  const target = document.getElementById(`page-${page}`);
+  if(target){
+    if(page === 'admin' || page === 'admin-login'){
+      target.classList.add('active');
+      target.style.display = page === 'admin' ? 'flex' : 'flex';
+    } else {
+      target.style.display = 'block';
+    }
+    window.scrollTo(0, 0);
+    if(page === 'shop') renderShop();
+    if(page === 'home'){ renderFeatured(); renderTrending(); }
+  }
+  document.getElementById('navbar').style.display = (page === 'admin' || page === 'admin-login') ? 'none' : 'block';
+}
+
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+function doLogin(){
+  const u = document.getElementById('loginUser').value;
+  const p = document.getElementById('loginPass').value;
+  const err = document.getElementById('loginErr');
+  if((u === 'admin' && p === 'mopo2024') || (u !== '' && p !== '')){
+    err.classList.remove('show');
+    showPage('admin');
+    renderAdminProducts();
+  } else {
+    err.classList.add('show');
+  }
+}
+
+function showAdminTab(tab, btn){
+  document.querySelectorAll('[id^="tab-"]').forEach(el=>el.style.display='none');
+  const el = document.getElementById(`tab-${tab}`);
+  if(el) el.style.display = 'block';
+  document.querySelectorAll('.admin-nav-item').forEach(el=>el.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const titles = {dashboard:'Dashboard',products:'Products',  'add-product':'Add Product',orders:'Orders',banners:'Banners',analytics:'Analytics',categories:'Categories'};
+  document.getElementById('adminTabTitle').textContent = titles[tab] || tab;
+}
+
+function renderAdminProducts(){
+  const tbody = document.getElementById('adminProductTable');
+  if(!tbody) return;
+  tbody.innerHTML = products.map(p=>`<tr>
+    <td><span style="font-size:.88rem;color:var(--white)">${p.name}</span></td>
+    <td><span style="text-transform:capitalize">${p.category}</span></td>
+    <td style="color:var(--accent)">₹${p.price}</td>
+    <td><span style="color:${Math.random()>0.7?'#e05c5c':'#25D366'}">${Math.floor(Math.random()*50+5)}</span></td>
+    <td><span class="status-badge ${Math.random()>0.3?'status-delivered':'status-pending'}">${Math.random()>0.3?'Active':'Draft'}</span></td>
+    <td><div style="display:flex;gap:.4rem">
+      <button class="admin-btn ghost" style="font-size:.58rem;padding:.25rem .5rem" onclick="showAdminTab('add-product',null)">Edit</button>
+      <button class="admin-btn danger" style="font-size:.58rem;padding:.25rem .5rem" onclick="if(confirm('Delete ${p.name}?'))this.closest('tr').remove()">Del</button>
+    </div></td>
+  </tr>`).join('');
+}
+
+// INIT
+showPage('home');
+</script>
+</body>
+</html>
